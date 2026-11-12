@@ -63,6 +63,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.ENGINE_REPO }}
+          # The engine repository is private: ENGINE_REPO_TOKEN is a token with
+          # read access to its contents. Unset, the default token is used
+          # (enough once the engine repository is public).
+          token: ${{ secrets.ENGINE_REPO_TOKEN || github.token }}
           ref: ${{ steps.tag.outputs.editor_tag }}
           path: engine
 
@@ -149,6 +153,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.ENGINE_REPO }}
+          # The engine repository is private: ENGINE_REPO_TOKEN is a token with
+          # read access to its contents. Unset, the default token is used
+          # (enough once the engine repository is public).
+          token: ${{ secrets.ENGINE_REPO_TOKEN || github.token }}
           ref: ${{ steps.tag.outputs.editor_tag }}
           path: engine
 
