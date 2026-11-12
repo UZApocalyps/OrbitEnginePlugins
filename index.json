@@ -8,6 +8,7 @@
       "fr": "Plugins natifs de l'éditeur publiés et signés par l'équipe OrbitEngine."
     }
   },
+  "generated": "2026-11-12T18:29:11Z",
   "plugins": [
     {
       "id": "orbit.ai_studio",
@@ -24,7 +25,25 @@
         "images",
         "writing"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.ai_studio-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "af53f16cf9f664b5b4f364948aca1bd71f818308db1361d5e06dca2f864e71ed",
+              "size": 8107231,
+              "signature": "0dc3c99b1fc200911dcf624d05bd7ad08c60dcd36f1dc3436f65271d63e383a32ee16bdf9c8e8ee4906a1bbc8a947bd17da5df17239019ab0d1a5a0cfee9d10a"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.asset_report",
@@ -40,7 +59,25 @@
         "assets",
         "report"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.asset_report-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "6d7fd72591738cb1932b9cc1730fe8730a37394c1e52fcf330d3eef8270accda",
+              "size": 1783105,
+              "signature": "791b8f99c7672b43c4e0c087d30cb9c21522b5641be20644e83933746a13a34925ab856a2518fd9078e8acea78808cc7283b4c4ee7461a52b6b385f0d74f610f"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.git",
@@ -56,7 +93,25 @@
         "git",
         "versioning"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.git-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "450471d9a7fe678c1565cfdf5fc629bf9c4d096092f5f849142317af09007614",
+              "size": 1669145,
+              "signature": "61965e2ccd548ba2da3d7f2544dbca284ef957ae137262b0ad2629bc672277298190d2a2bec6707cdfa320c707bd6f417d9f390ffeae874a0533c6bf3755ad08"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.mcp",
@@ -72,7 +127,25 @@
         "ai",
         "mcp"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.mcp-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "c632337088757972c6e64a44ea4a55af7f2afbb08e33ac1bebb1b265eb580cbe",
+              "size": 3207329,
+              "signature": "9a4c7d45778d2024a6303a175eaba0a5b3a7de4bfbdad37f37e12599a20b0d155956a722b577a95d20a610bdccf975ff9fc636dbe1bcdb91a2cdc069fa6d9f04"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.renpy_import",
@@ -88,7 +161,25 @@
         "import",
         "renpy"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.renpy_import-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "f0e05989be9ca269587ec72613766c1ba813a756895ee938942e6e21d7c43103",
+              "size": 2071361,
+              "signature": "8857b8feae79dc95de46f32c5bb1bb149f91a3d4759ab1da097c57e4ed64939637e3a1dc5e9986e5b25b89e3abde7bb38a1c3b16d501c56713ec78681e06a80b"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.story_lint",
@@ -101,10 +192,28 @@
       "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_story_lint_plugin",
       "license": "MIT OR Apache-2.0",
       "tags": [
-        "writing",
-        "analysis"
+        "analysis",
+        "writing"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.story_lint-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "48f0e406e6c38ff0bb0ffa5f3d0af58b4e82017f7dd32842621bff42d4461399",
+              "size": 1469228,
+              "signature": "6939d7f14b878e0838ff217e7f48d864368f7af6bc77b5ce3997dd963017294d92cc58d0a6c17189ab66da588cf8649dbbf612165d2f6a7d5cdef414333b1a09"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.story_stats",
@@ -117,10 +226,28 @@
       "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_story_stats_plugin",
       "license": "MIT OR Apache-2.0",
       "tags": [
-        "writing",
-        "statistics"
+        "statistics",
+        "writing"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.story_stats-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "2a1e6c1b7805782961b4c825b7dccfb20e470fcc754e66725fa5c40512522677",
+              "size": 1558495,
+              "signature": "41b90ae40f23a2194dd0039ff7dbfb80517c4e8e7091169a73c782c40c3b5e1e9e7b255dffad8007f1487607ce8b4b60e93ea236011a256f791926e9fc701b02"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.translation_qa",
@@ -133,10 +260,28 @@
       "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_translation_qa_plugin",
       "license": "MIT OR Apache-2.0",
       "tags": [
-        "translation",
-        "quality"
+        "quality",
+        "translation"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.translation_qa-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "94df8eea5768ec0bcbd6f179b538595a6b9831f9090fa0faaf9409c45ad96c79",
+              "size": 1750901,
+              "signature": "04ae0299b71a89f1645a63a3aeb436ab7a2cf891a7741ec3ecc3ff7e63f40573ecf691a0abd8f90ae2eaaa6ced6178bc48fd9d232f05aac9a9539862b7918804"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "orbit.voice_script",
@@ -152,7 +297,25 @@
         "voice",
         "writing"
       ],
-      "versions": []
+      "versions": [
+        {
+          "version": "0.5.2",
+          "released": "2026-11-12",
+          "changelog": "",
+          "builds": [
+            {
+              "editor_version": "0.5.2",
+              "fingerprint": "eb6fd265ffcf676bde7838c4fb90fd8a",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/plugins-v0.5.2-r1/orbit.voice_script-0.5.2-windows-x86_64.orbitplugin",
+              "sha256": "7d56418dfac219da76aed45c8394bdc74af5f9fbd1d437bb981bd929370a058a",
+              "size": 1760014,
+              "signature": "e1eab9e6413990e2e434574a6ec5c9a39d4b75a3ad5dc0ddb72fd912a463edbf227706dfd7c32d86221a2194adbeb537711e22babbdbd8eb1e8f1db95463b40b"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
