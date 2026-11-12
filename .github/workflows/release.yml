@@ -42,7 +42,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        # Windows only for now: the Linux builds are on hold (add ubuntu-latest back).
+        os: [windows-latest]
     steps:
       - name: Editor tag
         id: tag
