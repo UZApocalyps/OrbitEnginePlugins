@@ -67,6 +67,9 @@ jobs:
           # read access to its contents. Unset, the default token is used
           # (enough once the engine repository is public).
           token: ${{ secrets.ENGINE_REPO_TOKEN || github.token }}
+          # Do not leave the token in engine/.git/config: later steps build
+          # and run plugin code (build scripts, proc macros).
+          persist-credentials: false
           ref: ${{ steps.tag.outputs.editor_tag }}
           path: engine
 
@@ -157,6 +160,9 @@ jobs:
           # read access to its contents. Unset, the default token is used
           # (enough once the engine repository is public).
           token: ${{ secrets.ENGINE_REPO_TOKEN || github.token }}
+          # Do not leave the token in engine/.git/config: later steps build
+          # and run plugin code (build scripts, proc macros).
+          persist-credentials: false
           ref: ${{ steps.tag.outputs.editor_tag }}
           path: engine
 
