@@ -19,7 +19,139 @@
       "author": "OrbitEngine contributors",
       "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_ai_studio_plugin",
       "license": "MIT OR Apache-2.0",
-      "tags": ["ai", "images", "writing"],
+      "tags": [
+        "ai",
+        "images",
+        "writing"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.asset_report",
+      "name": "Asset report",
+      "description": {
+        "en": "Read-only report on the project's assets: unreferenced and undeclared files, size per asset and per type, biggest files, CSV export.",
+        "fr": "Rapport en lecture seule sur les assets du projet : fichiers non référencés ou non déclarés, taille par asset et par type, plus gros fichiers, export CSV."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_asset_report_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "assets",
+        "report"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.git",
+      "name": "Git",
+      "description": {
+        "en": "Git panel for the open project: branch, changed files, commit, recent history, repository creation. Uses the system's git; no network, nothing destructive.",
+        "fr": "Panneau Git du projet ouvert : branche, fichiers modifiés, commit, historique récent, création du dépôt. Utilise le git du système ; aucune opération réseau ni destructive."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_git_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "git",
+        "versioning"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.mcp",
+      "name": "MCP server",
+      "description": {
+        "en": "Live MCP server of the editor (HTTP on 127.0.0.1, token) and the AI Assistant panel: lets an AI client such as Claude Code edit the open project.",
+        "fr": "Serveur MCP live de l'éditeur (HTTP sur 127.0.0.1, jeton) et panneau Assistant IA : permet à un client IA comme Claude Code de modifier le projet ouvert."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_mcp_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "ai",
+        "mcp"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.renpy_import",
+      "name": "Ren'Py import",
+      "description": {
+        "en": "File > Import from Ren'Py: converts a Ren'Py game into a new project and shows the import report.",
+        "fr": "Fichier > Importer depuis Ren'Py : convertit un jeu Ren'Py en nouveau projet et affiche le rapport d'import."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_renpy_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "import",
+        "renpy"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.story_lint",
+      "name": "Story Analysis",
+      "description": {
+        "en": "Read-only analysis panel: unused or never-written variables, unused characters, and a Mermaid export of the scene graph.",
+        "fr": "Panneau d'analyse en lecture seule : variables inutilisées ou jamais écrites, personnages inutilisés, et export Mermaid du graphe des scènes."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_story_lint_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "writing",
+        "analysis"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.story_stats",
+      "name": "Story Statistics",
+      "description": {
+        "en": "Read-only statistics panel: scenes, steps, words and lines per scene and per character, choices, estimated reading time, voice coverage, CSV export.",
+        "fr": "Panneau de statistiques en lecture seule : scènes, étapes, mots et répliques par scène et par personnage, choix, durée de lecture estimée, couverture des voix, export CSV."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_story_stats_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "writing",
+        "statistics"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.translation_qa",
+      "name": "Translation check",
+      "description": {
+        "en": "Read-only check of the translations: variables and text tags that differ from the source, identical or empty translations, spaces, final punctuation, too long texts, orphaned entries, CSV export.",
+        "fr": "Contrôle en lecture seule des traductions : variables et balises différentes de la source, traductions identiques ou vides, espaces, ponctuation finale, textes trop longs, entrées orphelines, export CSV."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_translation_qa_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "translation",
+        "quality"
+      ],
+      "versions": []
+    },
+    {
+      "id": "orbit.voice_script",
+      "name": "Voice script",
+      "description": {
+        "en": "Read-only voice-acting script: the lines to record per character, in scene order, with the expected voice file and its status; CSV and actor-friendly text export.",
+        "fr": "Script de doublage en lecture seule : les répliques à enregistrer par personnage, dans l'ordre des scènes, avec le fichier voix attendu et son état ; export CSV et texte pour les comédiens."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_voice_script_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": [
+        "voice",
+        "writing"
+      ],
       "versions": []
     }
   ]
