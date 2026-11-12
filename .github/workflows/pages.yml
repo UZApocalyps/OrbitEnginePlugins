@@ -1,0 +1,49 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "index.json"
+  workflow_dispatch:
+  # A release commits index.json with GITHUB_TOKEN, which does not trigger `push`
+  # workflows: redeploy when the release workflow succeeds.
+  workflow_run:
+    workflows: ["Release plugins"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # For workflow_run, only deploy when the release succeeded.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Copy the catalog into the site
+        run: |
+          if [ -f index.json ]; then
+            cp index.json site/index.json
+          else
+            echo '{"schema_version":1,"source":{"name":"OrbitEngine official plugins"},"plugins":[]}' > site/index.json
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "OrbitEngine official plugins",
+    "homepage": "https://github.com/UZApocalyps/OrbitEnginePlugins",
+    "description": {
+      "en": "Native editor plugins published and signed by the OrbitEngine team.",
+      "fr": "Plugins natifs de l'éditeur publiés et signés par l'équipe OrbitEngine."
+    }
+  },
+  "plugins": [
+    {
+      "id": "orbit.ai_studio",
+      "name": "AI Studio",
+      "description": {
+        "en": "AI game-creation wizard: pitch, story bible, script, generated pictures, implementation in the project; plus its MCP tools. Works with local (Ollama, LM Studio, ComfyUI, Stable Diffusion) or online providers.",
+        "fr": "Assistant de création de jeu par IA : pitch, bible de l'histoire, script, images générées, intégration au projet ; avec ses outils MCP. Fonctionne avec des fournisseurs locaux (Ollama, LM Studio, ComfyUI, Stable Diffusion) ou en ligne."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEngine/tree/master/plugins/orbit_ai_studio_plugin",
+      "license": "MIT OR Apache-2.0",
+      "tags": ["ai", "images", "writing"],
+      "versions": []
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+name: Release plugins
+
+# Builds every official plugin for one editor release, signs the builds, publishes
+# them as a GitHub release and adds them to index.json.
+#
+# A native plugin only loads in the exact editor build it was compiled for (sources,
+# rustc, Cargo.lock, features, target, profile): the plugins are built INSIDE the
+# OrbitEngine workspace checked out at the editor tag, with its rust-toolchain.toml
+# and Cargo.lock, in release, on the same OSes as the editor releases. The editor
+# binaries users run must come from the same toolchain (pin an exact rustc in the
+# engine's rust-toolchain.toml) for the build ids to match.
+
+on:
+  workflow_dispatch:
+    inputs:
+      editor_tag:
+        description: "OrbitEngine tag of the editor release (e.g. v0.5.0; it must include the plugin store tooling: cargo xtask plugins --sign-env / plugin-index)"
+        required: true
+      changelog:
+        description: "Changelog of the new plugin versions (optional)"
+        required: false
+        default: ""
+  push:
+    # `editor-v0.5.0` builds for the editor tag `v0.5.0`.
+    tags: ["editor-v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-plugins
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  ENGINE_REPO: UZApocalyps/OrbitEngine
+
+jobs:
+  build:
+    name: build ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - name: Editor tag
+        id: tag
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "editor_tag=${{ inputs.editor_tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "editor_tag=${GITHUB_REF_NAME#editor-}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out this repository
+        uses: actions/checkout@v4
+        with:
+          path: plugins-repo
+
+      - name: Check out OrbitEngine at the editor tag
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.ENGINE_REPO }}
+          ref: ${{ steps.tag.outputs.editor_tag }}
+          path: engine
+
+      - name: Install the engine's toolchain (rust-toolchain.toml)
+        shell: bash
+        working-directory: engine
+        run: |
+          rustup toolchain install
+          rustc -Vv
+
+      - name: Install system dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libx11-dev libxcursor-dev libxi-dev libxrandr-dev libxkbcommon-dev \
+            libxkbcommon-x11-dev libwayland-dev libvulkan-dev libegl1-mesa-dev \
+            libgl1-mesa-dev pkg-config
+
+      - name: Add this repository's plugins to the engine workspace
+        shell: bash
+        run: |
+          for dir in plugins-repo/plugins/*/; do
+            [ -f "$dir/Cargo.toml" ] || continue
+            name=$(basename "$dir")
+            if [ -e "engine/plugins/$name" ]; then
+              echo "::error::plugins/$name already exists in the engine repository"
+              exit 1
+            fi
+            cp -r "$dir" "engine/plugins/$name"
+            echo "added plugins/$name"
+          done
+
+      - name: Build the editor (release)
+        working-directory: engine
+        run: cargo build -p orbit_editor --release
+
+      - name: Build, package and sign the plugins
+        working-directory: engine
+        env:
+          ORBIT_PLUGIN_SIGNING_KEY: ${{ secrets.ORBIT_PLUGIN_SIGNING_KEY }}
+        shell: bash
+        run: |
+          if [ -z "$ORBIT_PLUGIN_SIGNING_KEY" ]; then
+            echo "::error::the secret ORBIT_PLUGIN_SIGNING_KEY is not set"
+            exit 1
+          fi
+          cargo xtask plugins --sign-env ORBIT_PLUGIN_SIGNING_KEY
+
+      - name: Upload the packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugins-${{ matrix.os }}
+          path: |
+            engine/target/plugins/*.orbitplugin
+            engine/target/plugins/*.orbitplugin.json
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Editor tag and release tag
+        id: tag
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            editor_tag="${{ inputs.editor_tag }}"
+          else
+            editor_tag="${GITHUB_REF_NAME#editor-}"
+          fi
+          echo "editor_tag=$editor_tag" >> "$GITHUB_OUTPUT"
+          echo "release_tag=plugins-$editor_tag-r${{ github.run_number }}" >> "$GITHUB_OUTPUT"
+
+      - name: Check out this repository (main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: plugins-repo
+
+      - name: Check out OrbitEngine at the editor tag (for cargo xtask plugin-index)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.ENGINE_REPO }}
+          ref: ${{ steps.tag.outputs.editor_tag }}
+          path: engine
+
+      - name: Install the engine's toolchain
+        working-directory: engine
+        run: rustup toolchain install
+
+      - name: Download the packages
+        uses: actions/download-artifact@v4
+        with:
+          pattern: plugins-*
+          merge-multiple: true
+          path: dist
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.tag.outputs.release_tag }}" dist/*.orbitplugin \
+            --repo "${{ github.repository }}" \
+            --target main \
+            --title "Plugins for OrbitEngine ${{ steps.tag.outputs.editor_tag }} (#${{ github.run_number }})" \
+            --notes "Signed plugin builds for the OrbitEngine editor ${{ steps.tag.outputs.editor_tag }}. Install them from the editor: Tools > Extensions > Plugins... > Store."
+
+      - name: Update index.json
+        working-directory: engine
+        env:
+          CHANGELOG: ${{ inputs.changelog }}
+        shell: bash
+        run: |
+          args=(--index ../plugins-repo/index.json --builds ../dist --tag "${{ steps.tag.outputs.release_tag }}")
+          if [ -n "$CHANGELOG" ]; then args+=(--changelog "$CHANGELOG"); fi
+          cargo xtask plugin-index "${args[@]}"
+
+      - name: Commit index.json
+        working-directory: plugins-repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "index.json: plugins for OrbitEngine ${{ steps.tag.outputs.editor_tag }} (${{ steps.tag.outputs.release_tag }})"
+          git push origin HEAD:main

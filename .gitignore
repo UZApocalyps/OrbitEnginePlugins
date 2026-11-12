@@ -1,0 +1,18 @@
+# CI copy of the catalog (pages.yml copies ../index.json here)
+site/index.json
+
+# Secrets: never commit signing keys
+plugin_signing_key*
+*.key
+
+# Build output
+target/
+*.orbitplugin
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+*.log

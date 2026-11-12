@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "OrbitEngine official plugins (SAMPLE DATA)",
+    "homepage": "https://github.com/UZApocalyps/OrbitEnginePlugins",
+    "description": { "en": "Fictional sample catalog used to check the design.", "fr": "Catalogue d'exemple fictif pour vérifier le design." }
+  },
+  "generated": "2026-11-12T10:00:00Z",
+  "plugins": [
+    {
+      "id": "orbit.ai_studio",
+      "name": "AI Studio",
+      "description": {
+        "en": "AI game-creation wizard: describe your visual novel and let it draft scenes, characters and dialogue.",
+        "fr": "Assistant de création de jeu par IA : décrivez votre visual novel et laissez-le rédiger scènes, personnages et dialogues."
+      },
+      "author": "OrbitEngine contributors",
+      "homepage": "https://github.com/UZApocalyps/OrbitEnginePlugins",
+      "license": "MIT OR Apache-2.0",
+      "tags": ["ai", "writing", "wizard"],
+      "versions": [
+        {
+          "version": "0.4.1",
+          "released": "2026-11-20",
+          "changelog": { "en": "Better prompt templates; fixes a crash when cancelling.", "fr": "Meilleurs modèles de prompts ; corrige un plantage à l'annulation." },
+          "builds": [
+            {
+              "editor_version": "0.4.0",
+              "fingerprint": "3f1c0e9a7b2d4c5e8f9a0b1c2d3e4f50",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/orbit.ai_studio-v0.4.1/orbit.ai_studio-0.4.1-windows-x86_64.orbitplugin",
+              "sha256": "a3f5c9d1e7b2480f6c1d9e3a5b7f2c4d8e0a1b3c5d7f9e2a4c6b8d0f1e3a5c7b",
+              "size": 2457600,
+              "signature": "5b1e9c3d7a2f4e6081b3d5f79a1c3e5072948b6d0f2a4c6e8013579bdf02468a1c3e5f70924b6d8a0c2e4f6183a5c7e9b1d3f5071a2c4e6f8091b3d5f7a9c1e305"
+            },
+            {
+              "editor_version": "0.4.0",
+              "fingerprint": "9d8c7b6a5f4e3d2c1b0a99887766554e",
+              "target": "x86_64-unknown-linux-gnu",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/orbit.ai_studio-v0.4.1/orbit.ai_studio-0.4.1-linux-x86_64.orbitplugin",
+              "sha256": "0b9d7f5e3c1a2468ace02468bdf13579ace02468bdf1357924680ace13579bdf",
+              "size": 2312192,
+              "signature": "c0ffee00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899aabbcc01"
+            }
+          ]
+        },
+        {
+          "version": "0.4.0",
+          "released": "2026-11-12",
+          "changelog": { "en": "First store release.", "fr": "Première version du store." },
+          "builds": [
+            {
+              "editor_version": "0.4.0",
+              "fingerprint": "3f1c0e9a7b2d4c5e8f9a0b1c2d3e4f50",
+              "target": "x86_64-pc-windows-msvc",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/orbit.ai_studio-v0.4.0/orbit.ai_studio-0.4.0-windows-x86_64.orbitplugin",
+              "sha256": "1122334455667788990011223344556677889900aabbccddeeff001122334455",
+              "size": 2401280,
+              "signature": "aa11bb22cc33dd44ee55ff66aa11bb22cc33dd44ee55ff66aa11bb22cc33dd44ee55ff66aa11bb22cc33dd44ee55ff66aa11bb22cc33dd44ee55ff66aa11bb22"
+            },
+            {
+              "editor_version": "0.4.0",
+              "fingerprint": "9d8c7b6a5f4e3d2c1b0a99887766554e",
+              "target": "x86_64-unknown-linux-gnu",
+              "profile": "release",
+              "url": "https://github.com/UZApocalyps/OrbitEnginePlugins/releases/download/orbit.ai_studio-v0.4.0/orbit.ai_studio-0.4.0-linux-x86_64.orbitplugin",
+              "sha256": "ffeeddccbbaa99887766554433221100ffeeddccbbaa99887766554433221100",
+              "size": 2260992,
+              "signature": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acme.dialogue_tools",
+      "name": "Dialogue Tools",
+      "description": "Lint dialogue scripts, find unused characters and export a readable screenplay view.",
+      "author": "Acme Studio",
+      "homepage": "https://example.com/acme/dialogue-tools",
+      "license": "MIT",
+      "tags": ["writing", "tools"],
+      "versions": [
+        {
+          "version": "1.2.0-beta.1",
+          "released": "2026-10-30",
+          "changelog": "Screenplay export (beta).",
+          "builds": [
+            {
+              "editor_version": "0.4.0",
+              "fingerprint": "3f1c0e9a7b2d4c5e8f9a0b1c2d3e4f50",
+              "target": "aarch64-apple-darwin",
+              "profile": "release",
+              "url": "https://example.com/acme/dialogue_tools-1.2.0-beta.1-macos-arm64.orbitplugin",
+              "sha256": "5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a",
+              "size": 904321,
+              "signature": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acme.palette",
+      "name": "Palette",
+      "description": { "fr": "Générateur de palettes de couleurs pour vos thèmes d'interface." },
+      "author": "Acme Studio",
+      "license": "Apache-2.0",
+      "tags": ["ui", "tools"],
+      "versions": []
+    }
+  ]
+}
